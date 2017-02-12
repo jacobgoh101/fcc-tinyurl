@@ -81,6 +81,7 @@ app.get('/new/*',(req,res) => {
 });
 
 app.get('/list', (req,res) => {
+  res.setHeader("Content-Type", "application/json");
   MongoClient.connect(dbUrl, function (err, db) {
     if (err) {
       console.log('Unable to connect to the mongoDB server. Error:', err);
@@ -100,6 +101,7 @@ app.get('/list', (req,res) => {
 })
 
 app.get('/clearall', (req,res) => {
+  res.setHeader("Content-Type", "application/json");
   MongoClient.connect(dbUrl, function (err, db) {
     if (err) {
       console.log('Unable to connect to the mongoDB server. Error:', err);
@@ -119,7 +121,25 @@ app.get('/clearall', (req,res) => {
   });
 })
 
+app.get('/', (req,res) => {
+  res.setHeader("Content-Type", "application/json");
+  res.json({
+    Name: 'Url Shortener',
+    'Example Usage': [
+      baseUrl + '/new/https://www.google.com',
+      baseUrl + '/new/http://www.reddit.com'
+    ],
+    'Example Output': {
+      "original_url": baseUrl + "http://www.yahoo.com",
+      "short_url": baseUrl + "/N6Sz"
+    },
+    'List All': baseUrl + "/list",
+    'Clear All': baseUrl + "/clearall"
+  });
+})
+
 app.get('/*', (req,res) => {
+  res.setHeader("Content-Type", "application/json");
   let urlParam = req.params[0];
   MongoClient.connect(dbUrl, function (err, db) {
     if (err) {
