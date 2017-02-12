@@ -1,0 +1,26 @@
+{
+  "name": "fcc-tinyurl",
+  "version": "1.0.0",
+  "description": "based on https://www.freecodecamp.com/challenges/url-shortener-microservice",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jacobgoh101/fcc-tinyurl.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jacobgoh101/fcc-tinyurl/issues"
+  },
+  "homepage": "https://github.com/jacobgoh101/fcc-tinyurl#readme",
+  "dependencies": {
+    "async": "^2.1.4",
+    "express": "^4.14.1",
+    "mongodb": "^2.2.22",
+    "randomstring": "^1.1.5",
+    "valid-url": "^1.0.9"
+  }
+}
